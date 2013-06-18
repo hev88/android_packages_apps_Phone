@@ -88,6 +88,8 @@ public class InCallControlState {
     // should be visible.
     public boolean canHold;
 
+    public boolean canRecord;
+    public boolean recordIndicatorOn;
 
     public InCallControlState(InCallScreen inCallScreen, CallManager cm) {
         if (DBG) log("InCallControlState constructor...");

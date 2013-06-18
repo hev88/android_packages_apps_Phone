@@ -1642,6 +1642,10 @@ public class InCallScreen extends Activity
                 onMuteClick();
                 return true;
 
+            case KeyEvent.KEYCODE_MEDIA_RECORD:
+                onRecordClick();
+                return true;
+
             // Various testing/debugging features, enabled ONLY when VDBG == true.
             case KeyEvent.KEYCODE_SLASH:
                 if (VDBG) {
