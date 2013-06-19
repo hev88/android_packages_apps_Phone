@@ -169,6 +169,11 @@ public class InCallControlState {
             muteIndicatorOn = PhoneUtils.getMute();
         }
 
+        canRecord = mCM.hasActiveFgCall() && mCM.getActiveFgCallState().isAlive();
+        recordIndicatorOn = PhoneUtils.isRecording();
+        if (DBG)
+            Log.d(LOG_TAG, "canRecord: " + canRecord + " recordIndicatorOn :" + recordIndicatorOn);
+
         // Blacklisting: Enabled only for incoming calls with a number
         if (hasActiveForegroundCall && c != null) {
             canBlacklistCall = c.isIncoming() && !TextUtils.isEmpty(c.getAddress());
@@ -233,6 +238,7 @@ public class InCallControlState {
         log("  speakerOn: " + speakerOn);
         log("  canMute: " + canMute);
         log("  muteIndicatorOn: " + muteIndicatorOn);
+        log("  recordIndicatorOn: " + recordIndicatorOn);
         log("  dialpadEnabled: " + dialpadEnabled);
         log("  dialpadVisible: " + dialpadVisible);
         log("  onHold: " + onHold);
